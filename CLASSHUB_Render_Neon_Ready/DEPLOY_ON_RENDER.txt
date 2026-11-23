@@ -1,0 +1,33 @@
+CLASSHUB — QUICK DEPLOYMENT CHECKLIST
+
+A. UPDATE GITHUB FIRST
+1. Open your GitHub repository: StarProtocol3000/ClassHub.
+2. Upload the CONTENTS of this folder to the repository root (not the enclosing folder).
+3. Ensure render.yaml is visible in the repository's main page beside app.py and requirements.txt.
+4. Commit the changes to the main branch.
+
+B. CREATE THE RENDER BLUEPRINT
+1. Return to Render > New Blueprint.
+2. Repository: StarProtocol3000/ClassHub.
+3. Branch: main.
+4. Blueprint path: render.yaml
+5. Render should now detect the classhub web service. Apply/create it.
+
+C. CONNECT NEON
+1. In Neon, open project classhub-db > Connect.
+2. Choose branch production, the listed database and role.
+3. Copy the pooled connection string if available. Keep it private.
+4. In Render, open the classhub web service > Environment.
+5. Add DATABASE_URL and paste the Neon connection string as its value.
+6. Save and redeploy.
+
+D. FIRST USE
+1. Wait for the Render deploy to finish and /health to report healthy.
+2. Open the Render service URL and visit /setup.
+3. Create the lecturer/admin account.
+4. Create a class and share its class code with students.
+
+SECURITY
+- Never commit DATABASE_URL or passwords to GitHub.
+- Render generates CLASSHUB_SECRET through render.yaml.
+- Do not share screenshots containing the Neon connection string.
